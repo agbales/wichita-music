@@ -8,7 +8,6 @@
       <th>Title</th>
       <th>Year</th>
       <th>Submitter</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -20,11 +19,7 @@
         <td><%= post.title %></td>
         <td><%= post.year %></td>
         <td><%= post.user.user_name %></td>
-        <td><%= button_to 'Show', post, :class => 'post-button' %></td>
-        <% if post.user == current_user %>
-          <td><%= button_to 'Edit', edit_post_path(post), {:action => "edit", :controller => "posts", :method => :get, :class => 'post-button'} %></td>
-          <td><%= button_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?', :class => 'post-button' } %></td>
-        <% end %>
+        <!-- <td><%= button_to 'Show', post, :class => 'post-button' %></td> -->
       </tr>
     <% end %>
   </tbody>

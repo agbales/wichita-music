@@ -21,5 +21,8 @@
   <%= @post.year %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Index', posts_path %>
+<% if @post.user == current_user %>
+  <td><%= link_to 'Edit', edit_post_path(@post), {:action => "edit", :controller => "posts", :method => :get, :class => 'post-button'} %></td>
+  <td><%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?', :class => 'post-button' } %></td>
+<% end %>
