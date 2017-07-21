@@ -36,6 +36,11 @@
     <%= f.file_field :cover_image %>
   </div>
 
+  <%= f.fields_for :songs do |song| %>
+    <%= builder.label :title %>
+    <%= builder.text_area :title %>
+  <% end %>
+
   <div class="actions">
     <%= f.submit "submit"%>
   </div>
