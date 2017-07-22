@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170721192156) do
+ActiveRecord::Schema.define(version: 20170722061629) do
 
   create_table "albums", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "band"
+    t.string   "title"
+    t.string   "descritpion"
+    t.integer  "year"
+    t.string   "cover_image"
   end
 
   create_table "band_members", force: :cascade do |t|
