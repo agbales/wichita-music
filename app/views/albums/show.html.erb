@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @album.cover_image_url(:thumb).to_s %>
+<p>
+  <strong>Band:</strong>
+  <%= @album.band %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @album.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @album.description %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @album.year %>
+</p>
+
+<%= link_to 'Index', albums_path %>
+<% if @album.user == current_user %>
+  <td><%= link_to 'Edit', edit_album_path(@album), {:action => "edit", :controller => "albums", :method => :get, :class => 'album-button'} %></td>
+  <td><%= link_to 'Delete', @album, method: :delete, data: { confirm: 'Are you sure?', :class => 'album-button' } %></td>
+<% end %>

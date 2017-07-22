@@ -4,7 +4,7 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Post.all
+    @albums = Album.all
   end
 
   # GET /albums/1
@@ -21,14 +21,14 @@ class AlbumsController < ApplicationController
   def edit
   end
 
-  # POST /albums
-  # POST /albums.json
+  # album /albums
+  # album /albums.json
   def create
     @album = current_user.albums.build(album_params)
 
     respond_to do |format|
       if @album.save
-        format.html { redirect_to @album, notice: 'Post was successfully created.' }
+        format.html { redirect_to @album, notice: 'album was successfully created.' }
         format.json { render :show, status: :created, location: @album }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AlbumsController < ApplicationController
   def update
     respond_to do |format|
       if @album.update(album_params)
-        format.html { redirect_to @album, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @album, notice: 'album was successfully updated.' }
         format.json { render :show, status: :ok, location: @album }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class AlbumsController < ApplicationController
   def destroy
     @album.destroy
     respond_to do |format|
-      format.html { redirect_to albums_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to albums_url, notice: 'album was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,11 +64,11 @@ class AlbumsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_album
-      @album = Post.find(params[:id])
+      @album = Album.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
-      params.require(:album).permit(:band, :description, :year, :cover_image, :title, :audio)
+      params.require(:album).permit(:band, :description, :year, :cover_image, song_attributes { :title, :audio })
     end
 end

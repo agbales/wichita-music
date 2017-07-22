@@ -1,10 +1,10 @@
-<%= form_for @post, :html => {:multipart => true} do |f| %>
-  <% if post.errors.any? %>
+<%= form_for @album, :html => {:multipart => true} do |f| %>
+  <% if album.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(album.errors.count, "error") %> prohibited this album from being saved:</h2>
 
       <ul>
-      <% post.errors.full_messages.each do |message| %>
+      <% album.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -36,7 +36,7 @@
     <%= f.file_field :cover_image %>
   </div>
 
-  <%= f.fields_for :song do |section| %>
+  <%= f.fields_for :songs do |section| %>
       <%= f.label :title %>
       <%= section.text_field :title %>
       <%= f.label :audio %>

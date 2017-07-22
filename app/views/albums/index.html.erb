@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cover</th>
+      <th>Band</th>
+      <th>Title</th>
+      <th>Year</th>
+      <th>User</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @albums.each do |album| %>
+      <tr>
+        <td><%= link_to image_tag(album.cover_image_url(:thumb)), album if album.cover_image? %></td>
+        <td><%= album.band %></td>
+        <td><%= album.title %></td>
+        <td><%= album.year %></td>
+        <td><%= album.user.user_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'New album', new_album_path, {:action => "new", :controller => "albums", :method => :get} %>
