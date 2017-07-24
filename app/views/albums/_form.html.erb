@@ -36,11 +36,11 @@
     <%= f.file_field :cover_image %>
   </div>
 
-  <%= f.fields_for :songs do |section| %>
-      <%= section.label :title %>
-      <%= section.text_field :title %>
-      <%= section.label :audio %>
-      <%= section.file_field :audio %>
+  <%= f.fields_for :songs, Song.new do |song| %>
+      <%= song.label :title %>
+      <%= song.text_field :title %>
+      <%= song.label :audio %>
+      <%= song.file_field :audio %>
   <% end %>
 
   <div class="actions">

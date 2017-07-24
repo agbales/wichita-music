@@ -21,6 +21,14 @@
   <%= @album.year %>
 </p>
 
+<p>
+  <strong>Songs:</strong>
+  <p>
+    <%= @album.songs.count %> total.
+  </p>
+</p>
+
+
 <%= link_to 'Index', albums_path %>
 <% if @album.user == current_user %>
   <td><%= link_to 'Edit', edit_album_path(@album), {:action => "edit", :controller => "albums", :method => :get, :class => 'album-button'} %></td>
