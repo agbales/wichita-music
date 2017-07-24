@@ -37,10 +37,10 @@
   </div>
 
   <%= f.fields_for :songs do |section| %>
-      <%= f.label :title %>
+      <%= section.label :title %>
       <%= section.text_field :title %>
-      <%= f.label :audio %>
-      <%= f.file_field :audio %>
+      <%= section.label :audio %>
+      <%= section.file_field :audio %>
   <% end %>
 
   <div class="actions">
