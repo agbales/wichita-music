@@ -15,7 +15,7 @@ class AlbumsController < ApplicationController
   # GET /albums/new
   def new
     @album = current_user.albums.build
-    @album.songs.build
+    @songs = @album.songs.build
   end
 
   # GET /albums/1/edit

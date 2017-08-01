@@ -1,0 +1,8 @@
+<fieldset>
+  <%= f.label :title, "Song Title" %><br />
+  <%= f.text_field :title %><br />
+  <%= f.label :audio, "Upload" %>
+  <%= f.file_field :audio %>
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Song" %>
+</fieldset>

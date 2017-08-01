@@ -32,6 +32,6 @@
 
 <% if @album.user == current_user %>
   <td><%= link_to 'Edit Info', edit_album_path(@album), {:action => "edit", :controller => "albums", :method => :get, :class => 'album-button'} %></td>
-  <td><%= link_to 'Edit Songs', songs_path(@album) %></td>
+  <td><%= link_to 'Edit Songs', songs_path(album_id: @album.id) %></td>
   <td><%= link_to 'Delete', @album, method: :delete, data: { confirm: 'Are you sure?', :class => 'album-button' } %></td>
 <% end %>

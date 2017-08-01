@@ -36,6 +36,12 @@
     <%= f.file_field :cover_image %>
   </div>
 
+  <%= f.fields_for :songs do |f| %>
+    <%= render 'song_fields', f: builder %>
+    <%= link_to_add_fields "Add Song", f, :songs %>
+  <% end %>
+
+  <!-- About should be ale to eplace this...jquery adddition needed -->
   <%= fields_for :songs, @album.songs.build do |f| %>
      <%= f.label :title %>
      <%= f.text_field :title %>
