@@ -9,6 +9,10 @@
     </tr>
   </thead>
 
+  <% if @songs.count == 0 %>
+    <h3>no songs yet</h3>
+  <% end %>
+
   <tbody>
     <% @songs.each do |song| %>
       <tr>
@@ -22,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Song', new_song_path %>
+<%= link_to 'Add Song', new_song_path(@album) %>
