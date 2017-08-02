@@ -36,18 +36,20 @@
     <%= f.file_field :cover_image %>
   </div>
 
-  <%= f.fields_for :songs do |f| %>
-    <%= render 'song_fields', f: builder %>
-    <%= link_to_add_fields "Add Song", f, :songs %>
+  <%= f.fields_for :songs do |builder| %>
+    <%= builder.label :title %>
+    <%= builder.text_field :title %>
+    <%= builder.label :audio %>
+    <%= builder.file_field :audio %>
   <% end %>
 
   <!-- About should be ale to eplace this...jquery adddition needed -->
-  <%= fields_for :songs, @album.songs.build do |f| %>
+  <!-- <%= fields_for :songs, @album.songs.build do |f| %>
      <%= f.label :title %>
      <%= f.text_field :title %>
      <%= f.label :audio %>
      <%= f.file_field :audio %>
-  <% end %>
+  <% end %> -->
 
   <div class="actions">
     <%= f.submit "submit"%>

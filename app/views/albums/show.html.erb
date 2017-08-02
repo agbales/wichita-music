@@ -24,7 +24,9 @@
 <p>
   <strong>Songs:</strong>
   <p>
-    <%= @album.songs.count %> total.
+    <% @album.songs.each_with_index do |s, i| %>
+      <p><%= i + 1 %>. <%= s.title %></p>
+    <% end %>
   </p>
 </p>
 
