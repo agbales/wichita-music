@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <%= image_tag @album.cover_image_url(:thumb).to_s %>
+
 <p>
   <strong>Band:</strong>
   <%= @album.band %>
@@ -26,6 +27,7 @@
   <p>
     <% @album.songs.each_with_index do |s, i| %>
       <p><%= i + 1 %>. <%= s.title %></p>
+      <%= s.audio %>
     <% end %>
   </p>
 </p>
@@ -33,7 +35,6 @@
 <%= link_to 'Index', albums_path %>
 
 <% if @album.user == current_user %>
-  <td><%= link_to 'Edit Info', edit_album_path(@album), {:action => "edit", :controller => "albums", :method => :get, :class => 'album-button'} %></td>
-  <td><%= link_to 'Edit Songs', songs_path(album_id: @album.id) %></td>
+  <td><%= link_to 'Edit', edit_album_path(@album), {:action => "edit", :controller => "albums", :method => :get, :class => 'album-button'} %></td>
   <td><%= link_to 'Delete', @album, method: :delete, data: { confirm: 'Are you sure?', :class => 'album-button' } %></td>
 <% end %>
